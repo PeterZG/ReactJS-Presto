@@ -1,0 +1,217 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
+
+.icon-border {
+    width: 30px;
+    height: 30px;
+    border: solid 2px rgb(38, 37, 37);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.presentations {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.presentation {
+    width: 300px;
+    max-width: 300px;
+    min-width: 100px;
+    aspect-ratio: 2 / 1;
+    background-color: rgb(121, 201, 241);
+    margin: 5px;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    gap: 5px;
+}
+.presentation .img {
+    width: 50%;
+    height: 100%;
+    background-color: rgb(150, 210, 240);
+    border-radius: 8px;
+}
+.presentation .img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+.presentation .name {
+    font-size: 1.2em;
+    font-weight: bold;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+}
+
+.slideBox {
+    position: relative;
+    max-width: 960px;
+}
+
+.slide {
+    max-width: 960px;
+    aspect-ratio: 48 / 35;
+    border: dashed 1px rgb(173, 169, 169);
+    position: relative;
+}
+
+.slide-number {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 50px;
+    height: 50px;
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px rgb(173, 169, 169);
+    border-radius: 20px;
+}
+
+.slide-control {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+    padding-top: 5px;
+    z-index: 2000;
+}
+
+.slide-control .icon {
+    width: 30px;
+    height: 30px;
+}
+
+.slide-control .icon:hover {
+    color: rgb(100, 94, 94);
+    background-color: aliceblue;
+}
+
+.slide-control .icon:active {
+    color: rgb(2, 94, 94);
+}
+
+.slide-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    padding: 15px;
+}
+
+.slide-btn:hover {
+    background-color: aliceblue;
+}
+
+.slide-btn svg {
+    width: 30px;
+    height: 30px;
+}
+
+.slide-item {
+    position: absolute;
+    border: solid 1px rgb(173, 169, 169);
+    overflow: hidden;
+}
+
+.preview .slide-item {
+    border: none;
+}
+
+.slide-item img {
+    width: 100%;
+    height: 100%;
+}
+
+.slide-item video {
+    width: 100%;
+    height: 100%;
+}
+
+.edit-corner {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: greenyellow;
+    z-index: 1001;
+}
+
+.edit-box {
+    position: absolute;
+    border: solid 1px greenyellow;
+    z-index: 1000;
+}
+
+.slideBox.preview {
+    position: relative;
+    max-width: 100%;
+}
+
+.slide.preview {
+    max-width: 100%;
+}
+
+@keyframes fadeInOut {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.arrange-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.arrange-item {
+    width: 89px;
+    height: 89px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: cadetblue;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.history-box{
+    display: flex;
+    flex-direction: column;
+}
+.history-item {
+    border: solid 1px gray;
+    border-radius: 5px;
+    margin: 2px 0;
+    padding: 5px 10px;
+}
+.history-item:hover {
+    background-color: gray;
+}
