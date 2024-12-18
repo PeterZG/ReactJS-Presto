@@ -55,7 +55,7 @@ I watched the following lectures to finish the project completely:
 
 ## 2. The Front-End
 
-I am building the frontend for the provided backend. This frontend should be a single-page application that does **NOT** require a refresh for state updates. If the app doesn't function as a fully single-page app, it will result in significant penalties.
+I am building the frontend for the provided backend. This frontend should be a single-page application that does **NOT** require a refresh for state updates. If the app doesn't function as a fully single-page app, it will not meet the requirements.
 
 The requirements describe a series of **screens**. Screens can be presented as popups/modals, or full-page views. *Screen* refers to a specific state or representation of the web application. I have flexibility in how to implement them, whether as modals, separate pages, or other appropriate UI components.
 
