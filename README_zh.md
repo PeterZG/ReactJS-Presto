@@ -315,8 +315,8 @@
 
 ### 2.8. 其他说明
 * 用于从后端 `fetch` 数据的端口在 `frontend/src/config.json` 中定义。
-* [这篇文章可能对一些学生有帮助](https://stackoverflow.com/questions/66284286/react-jest-mock-usenavigate)。
-* 对于使用 TypeScript 的同学，[可以参考此指南](https://gitlab.cse.unsw.edu.au/COMP6080/NOW/react-typescript)。
+* [这篇文章可能有帮助](https://stackoverflow.com/questions/66284286/react-jest-mock-usenavigate)。
+* 对于使用 TypeScript的情况，[可以参考此指南](https://gitlab.cse.unsw.edu.au/COMP6080/NOW/react-typescript)。
 * 对于某些请求，你可能需要对后端进行“轮询”，即让前端每秒重复进行一次 API 调用来检查更新。
 
 **注意：** 你可能需要使用 UNSW 学生账户登录，并确保已注册 Web 开发课程，才能访问这些材料。不过，你也可以在 YouTube 或 Bilibili 等平台找到相关的学习资源来补充学习。
