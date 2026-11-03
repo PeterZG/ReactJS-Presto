@@ -1413,7 +1413,7 @@ a {
 .editor-stage { overflow: auto; min-width: 0; }
 .editor-stage .slideBox { flex: 0 0 auto; }
 .canvas-zoom-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding-top: 14px; font-size: 16px; color: var(--muted); }
-.canvas-zoom-controls input { accent-color: var(--accent); min-width: 100px; max-width: 180px; flex: 1; }
+.canvas-zoom-controls input { color: var(--ink); accent-color: var(--accent); min-width: 100px; max-width: 180px; flex: 1; }
 .canvas-zoom-controls output { font-variant-numeric: tabular-nums; min-width: 43px; }
 .canvas-zoom-controls .btn { padding: 6px 10px; font-size: 16px; }
 .presentation-cover strong { max-height: 70%; overflow: auto; }
