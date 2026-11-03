@@ -1,0 +1,55 @@
+name: Presto checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  frontend:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test -- --watchAll=false --runInBand
+        env:
+          CI: true
+      - run: npm run build
+        env:
+          REACT_APP_API_BASE_URL: http://127.0.0.1:5187
+      - run: npx playwright install --with-deps chrome
+      - run: npm ci --prefix ../backend
+      - name: Browser journeys
+        run: npm run qa:browser && npm run qa:native-zoom
+        env:
+          BROWSER_CHANNEL: chrome
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: presto-browser-screenshots
+          path: docs/screenshots/
+  backend:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test -- --runInBand

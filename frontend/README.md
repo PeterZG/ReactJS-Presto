@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# Presto frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The React presentation editor. Start the companion API in `../backend` before signing in or saving presentations.
 
-## Available Scripts
+## Development
 
-In the project directory, you can run:
+```sh
+npm ci
+npm start
+```
 
-### `npm start`
+Open `http://localhost:3000`.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+`REACT_APP_API_BASE_URL` defaults to `http://localhost:5005`. Set it before starting or building the client. Frontend environment values are public and must not contain secrets.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Source
 
-### `npm test`
+- `src/pages/`: route-level screens.
+- `src/layout/`: shared page layouts.
+- `src/editor/`: slide canvas and editing dialogs.
+- `src/services/`: API requests and presentation storage.
+- `src/state/` and `src/ui/`: shared state and controls.
+- `src/tests/`: component and service tests.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Check and build
 
-### `npm run build`
+```sh
+npm run lint
+npm test -- --watchAll=false
+npm run build
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The production output is written to `build/`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Browser tests
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Build the production frontend for the isolated QA API:
 
-### `npm run eject`
+```sh
+REACT_APP_API_BASE_URL=http://127.0.0.1:5187 npm run build
+npm run qa:browser
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The default browser is Playwright Chromium. For installed Chrome in PowerShell:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```powershell
+$env:BROWSER_CHANNEL='chrome'
+npm run qa:browser
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The script starts and stops its own real API and static server. Its accounts and database are isolated under ignored `../.qa/`; existing development data is preserved. Screenshots are written to `../docs/screenshots/`. `QA_API_URL` and `QA_PORT` allow alternate free ports; build the frontend with the same API URL.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+It verifies persisted CRUD for decks/slides/elements, title and thumbnail, themes, pointer move/resize, accessible ordering, history restoration, preview, logout, network recovery, six screen widths (320/390/768/1024/1440/1920), long text and 200% enlargement. The check deliberately interrupts one API request to verify retry; other CRUD assertions use the live API.
 
-## Learn More
+Run `npm run qa:native-zoom` for a separate native Chrome 200% pass. It uses an automatically removed temporary profile, `viewport: null`, Chrome's actual zoom setting and the real isolated API. It checks the five main pages and key CRUD, dragging, resizing, navigation and dialogs. This is separate from the CSS/text/canvas enlargement checks above. Google Chrome must be installed; the frontend defaults to port 4174.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+See the [project README](../README.md) for account settings and backend limitations.

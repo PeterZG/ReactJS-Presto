@@ -1,3 +1,9 @@
 node_modules
 database.json
 .DS_store
+**/coverage/
+**/build/
+.env
+.env.*.local
+*.log
+.qa/
