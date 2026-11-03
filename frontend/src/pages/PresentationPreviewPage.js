@@ -53,7 +53,7 @@ function Preview () {
         <span>{presentation?.name || 'Presentation preview'}</span>
         <Link
           to={`/dashboard/presentation/${id}/${currentSlide}`}
-          className="btn btn-secondary"
+          variant="secondary" className="btn btn-secondary"
         >
           Back to editor ↗
         </Link>

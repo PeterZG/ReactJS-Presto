@@ -218,7 +218,7 @@ function Presentations () {
           <div className="state-panel">
             <h3>No presentations found.</h3>
             <p>Try another name or clear your search.</p>
-            <Button className="btn btn-secondary" onClick={() => setQuery('')}>
+            <Button variant="secondary" className="btn btn-secondary" onClick={() => setQuery('')}>
               Clear search
             </Button>
           </div>

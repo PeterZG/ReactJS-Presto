@@ -119,7 +119,7 @@ function Register () {
               >
                 {isSubmitting ? 'Registering…' : 'Register'}
               </button>
-              <Link to="/login" id="login_link" className="btn btn-secondary">
+              <Link to="/login" id="login_link" variant="secondary" className="btn btn-secondary">
                 Login
               </Link>
             </div>

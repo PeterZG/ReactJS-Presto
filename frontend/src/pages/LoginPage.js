@@ -90,7 +90,7 @@ function Login () {
               <Link
                 to="/register"
                 id="register_link"
-                className="btn btn-secondary"
+                variant="secondary" className="btn btn-secondary"
               >
                 Register
               </Link>

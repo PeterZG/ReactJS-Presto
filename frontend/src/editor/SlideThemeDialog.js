@@ -65,7 +65,7 @@ function ThemeModal (props) {
 
   return (
     <>
-      <Button className="btn btn-secondary ms-2 mb-2" onClick={handleShow}>
+      <Button variant="secondary" className="btn btn-secondary ms-2 mb-2" onClick={handleShow}>
         Theme
       </Button>
 

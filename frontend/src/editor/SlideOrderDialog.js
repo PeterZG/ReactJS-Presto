@@ -20,7 +20,7 @@ export default function SlideOrderDialog ({ presentation, action }) {
     });
   }
   return <>
-    <Button className="btn btn-secondary" onClick={open}>Arrange slides</Button>
+    <Button variant="secondary" className="btn btn-secondary" onClick={open}>Arrange slides</Button>
     {show && <Modal show onHide={() => setShow(false)} scrollable>
       <Modal.Header closeButton><Modal.Title>Arrange slides</Modal.Title></Modal.Header>
       <Modal.Body><p className="field-hint">Drag a slide or use the move buttons. Changes apply when you save.</p><ol className="slide-order-list">

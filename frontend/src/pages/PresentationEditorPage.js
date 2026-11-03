@@ -318,7 +318,7 @@ function PresentationEditorPage () {
               />
               <Button
                 onClick={() => openNewTab(`/preview/${id}/${currentSlide}`)}
-                className="btn btn-secondary"
+                variant="secondary" className="btn btn-secondary"
                 disabled={saveStatus !== 'All changes saved'}
               >
                 Preview
